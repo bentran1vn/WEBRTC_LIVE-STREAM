@@ -1,0 +1,6 @@
+@TestLiveStream.API_HostAddress = http://localhost:5140
+
+GET {{TestLiveStream.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

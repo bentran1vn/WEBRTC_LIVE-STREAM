@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignalR WebRTC Livestream</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.11/signalr.min.js"></script>
+    <script defer src="script.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      video {
+        width: 100%;
+        border-radius: 8px;
+        background: #000;
+      }
+      button,
+      input {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+      }
+      button {
+        background: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .status {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #eef;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>SignalR WebRTC Livestream</h1>
+
+      <input
+        id="roomInput"
+        type="text"
+        placeholder="Enter room ID"
+        value="testRoom"
+      />
+      <button onclick="startLivestream()">Start Livestream (Host)</button>
+      <button onclick="joinLivestream()">Join Livestream (Viewer)</button>
+
+      <div class="status" id="connectionStatus">
+        Connection Status: Disconnected
+      </div>
+
+      <video id="hostVideo" autoplay muted playsinline></video>
+      <video id="viewerVideo" autoplay playsinline></video>
+    </div>
+  </body>
+</html>
